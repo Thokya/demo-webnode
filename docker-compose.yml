@@ -1,0 +1,33 @@
+version: '3'
+
+services: 
+    haproxy:
+        image: haproxy
+        ports:
+            - "4000:4000"
+        volumes: 
+            - ./haproxy:/usr/local/etc/haproxy          
+    nodeapp1:
+        image: nodeapp
+        ports:
+            - "1111:4000"
+        environment: 
+            - APPID=1111
+    nodeapp2:
+        image: nodeapp
+        ports:
+            - "2222:4000"
+        environment: 
+            - APPID=2222
+    nodeapp3:
+        image: nodeapp
+        ports:
+            - "3333:4000"
+        environment: 
+            - APPID=3333
+    nodeapp4:
+        image: nodeapp
+        ports:
+            - "4444:4000"
+        environment: 
+            - APPID=4444
